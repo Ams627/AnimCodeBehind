@@ -1,0 +1,19 @@
+rem echo off
+git init
+git add AnimCodeBehind/App.xaml
+git add AnimCodeBehind/App.xaml.cs
+git add AnimCodeBehind/ViewModel.cs
+git add AnimCodeBehind/Converters/ConverterBase.cs
+git add AnimCodeBehind/Converters/MyValueConverter.cs
+git add AnimCodeBehind/App.config
+git add AnimCodeBehind/MainWindow.xaml
+git add AnimCodeBehind/MainWindow.xaml.cs
+git add AnimCodeBehind/Properties/AssemblyInfo.cs
+git add AnimCodeBehind/app.config
+git add AnimCodeBehind/Properties/Settings.settings
+git add AnimCodeBehind/Properties/Resources.Designer.cs
+git add AnimCodeBehind/Properties/Resources.resx
+git add AnimCodeBehind/Properties/Settings.Designer.cs
+git add AnimCodeBehind/AnimCodeBehind.csproj
+git add AnimCodeBehind.sln
+git add .gitignore

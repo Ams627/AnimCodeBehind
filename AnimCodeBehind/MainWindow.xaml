@@ -1,0 +1,38 @@
+﻿<Window x:Class="AnimCodeBehind.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimCodeBehind"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+<Window.DataContext>
+    <local:ViewModel/>
+</Window.DataContext>
+    <StackPanel>
+        <Button Content="Press me" Click="Button_Click"/>
+        <TextBlock Name="tb" Text="Hello, World!" FontSize="20" Margin="{Binding MyMargin, Converter={local:MyValueConverter}}"
+                   MouseLeftButtonDown="tb_MouseLeftButtonDown"
+                   MouseLeave="tb_MouseOut"
+                   MouseLeftButtonUp="tb_MouseOut"
+                   >
+            <TextBlock.RenderTransform>
+                <ScaleTransform/>
+            </TextBlock.RenderTransform>
+            <TextBlock.Resources>
+                <BeginStoryboard x:Key="SBSmaller">
+                    <Storyboard Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="tb">
+                        <DoubleAnimation From="1" To=".9" Duration="00:00:1"/>
+                        <DoubleAnimation From="1" To=".9" Duration="00:00:1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+                <BeginStoryboard x:Key="SBBigger">
+                    <Storyboard  Storyboard.TargetName="tb">
+                        <DoubleAnimation From=".9" To="1" Duration="00:00:1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" />
+                        <DoubleAnimation From=".9" To="1" Duration="00:00:1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </TextBlock.Resources>
+        </TextBlock>
+    </StackPanel>
+</Window>
